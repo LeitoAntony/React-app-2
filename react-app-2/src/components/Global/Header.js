@@ -11,10 +11,16 @@ class Header extends Component {
         items: PropTypes.array.isRequired
     }
   render() {
-      console.log(this.props);
+      const {title, items} = this.props;
     return (
         <div className="Header">
           <img src={logo} className="Logo" alt="logo" />
+          <h2>{title}</h2>
+
+          <ul className="Menu">
+            {items && items.map((item, key) => <li className="d-inline mr-5" key={key}>{item.title}</li>)}
+          </ul>
+
         </div>
     );
   }
